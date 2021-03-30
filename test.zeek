@@ -15,7 +15,7 @@ event new_connection(c: connection){
 event zeek_done() {
     for (source_ip in agent_table) {
         if (|agent_table[source_ip]| >= 3) {
-            print(addr_to_uri(source_ip) + " is a proxy");
+            print fmt( " %s is a proxy",source_ip);
         }
     }
 }
