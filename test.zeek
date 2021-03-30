@@ -1,6 +1,6 @@
 global agent_table: table[addr] of set[string];
 
-event http_header(c: connection) {
+event new_connection(c: connection){
     local source_ip: addr = c$id$orig_h;
     if (c$http?$user_agent) {
         local agent: string = to_lower(c$http$user_agent);
